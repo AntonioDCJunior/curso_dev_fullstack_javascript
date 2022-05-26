@@ -1,0 +1,25 @@
+#teste {
+    font-size: 40px;
+    color: blue;
+}
+
+.sub-titulo {
+    font-size: 30px;
+
+}
+
+.cartao {
+    background-color: red;
+    width: 25%;
+    height: 100px;
+    padding: 20px;
+    margin-bottom: 50px;
+    margin-left: 200;
+}
+
+.cartao-maior {
+    margin-top: 50px;
+    background-color: yellow;
+    width: 50%;
+    height: 150px;
+}
