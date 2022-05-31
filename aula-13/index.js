@@ -7,3 +7,7 @@ axios.get('/user?ID=12345')
     .then(function(response){
         console.log(response);        
 })
+
+function digaOla(){
+    alert('Olá, tudo blz?')
+}
