@@ -12,3 +12,6 @@ console.log(altura)
 const peso = "110kg";
 console.log(peso)
 
+let grupo = ["Alexandre", "Antonio", "Rani", "Pedro"]
+console.log(grupo)
+
