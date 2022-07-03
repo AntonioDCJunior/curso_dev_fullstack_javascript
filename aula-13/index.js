@@ -1,13 +1,7 @@
 var moment = require('moment')
-var dataAtual = moment().format('DD/MM/YYY')
-console.log = (dataAtual)
-
-var moduloInstalado = require('axios');
-axios.get('/user?ID=12345')
-    .then(function(response){
-        console.log(response);        
-})
+var dataAtual = moment().format('DD/MM/YYYY')
+console.log(dataAtual)
 
 function digaOla(){
-    alert('Olá, tudo blz?')
+    alert ('E aí, blz?')
 }
