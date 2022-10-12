@@ -8,7 +8,7 @@ const cidades = require('./estados.json')
     console.log(contador)
     console.log(json.estados[contador])
 
-    if(cidade === "João Pessoa"){
+    if(json.estados[contador] === "Paraíba"){
         return 
     }
  }

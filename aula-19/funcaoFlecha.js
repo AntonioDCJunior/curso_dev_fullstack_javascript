@@ -14,5 +14,8 @@
 
  
 
-let maiorDeIdade = (idade) => idade >= 18 ? 'Maior de Idade' : 'Menor de idade'
+// let maiorDeIdade = (idade) => idade >= 18 ? 'Maior de Idade' : 'Menor de idade'
+// console.log(maiorDeIdade(10))
+
+const maiorDeIdade = (idade) => idade >= 18 ? 'Opa, maior de idade' : 'Opa, menor de idade'
 console.log(maiorDeIdade(10))
