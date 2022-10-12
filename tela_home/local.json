@@ -1,0 +1,15 @@
+{
+    "estados": [
+       {
+            "sigla": "PB",
+            "nome": "Paraíba",
+            "cidades": [
+            "Bayeux",
+            "Cabedelo",
+            "Conde",
+            "João Pessoa",
+            "Santa Rita"
+            ]
+        }
+    ]
+}
