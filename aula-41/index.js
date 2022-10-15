@@ -17,9 +17,30 @@ app.get('/usuarios', async (req, res) => {
 })
 
 app.post('/usuarios', async (req, res) => {
-    const data = req.body
+    const data = {...req.body, enderecos: create}
+
+    data: {
+        enderecos: {
+          create: [
+            {
+              title: 'My first day at Prisma',
+              categories: {
+                create: {
+                  name: 'Office',
+                },
+              },
+            },
+            {
+              },
+            },
+          ],
+        },
+      },
+    })
+
+
     console.log(data)
-    const resultado = await prisma.usuarios.create({ data })
+    const resultado = await prisma.usuarios.create({ data: data })
     if (resultado) 
         res.status(201).send(resultado)
 })

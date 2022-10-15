@@ -33,11 +33,11 @@ model enderecos {
 model cidades {
   id          Int     @id @default(autoincrement())
   nome        String  @db.VarChar(100)
-  enderecos enderecos []
+  enderecos   enderecos []
 }
 
 model estados {
   id           Int      @id @default(autoincrement())
-  nome         String @db.VarChar(100)
-  cidadeID     Int
+  nome         String   @db.VarChar(100)
+  cidadeId     Int
 }
