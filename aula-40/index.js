@@ -24,6 +24,19 @@ app.post('/usuarios', async (req, res) => {
         res.status(201).send(resultado)
 })
 
+app.get('/enderecos', async (req, res) => {
+    const enderecos = await prisma.enderecos.findMany()
+    res.send(enderecos)
+})
+
+app.post('/enderecos', async (req, res) => {
+    const data = req.body
+    console.log(data)
+    const resultado = await prisma.enderecos.create({ data })
+    if (resultado) 
+        res.status(201).send(resultado)
+})
+
 app.get('/usuarios/:id', async (req, res) => {
     const id = parseInt(req.params.id)
     const resultado = await prisma.usuarios.findUnique({ where: { id } })

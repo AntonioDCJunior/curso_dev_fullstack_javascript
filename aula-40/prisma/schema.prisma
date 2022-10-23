@@ -19,6 +19,6 @@ model usuarios {
 
 model enderecos {
   id          Int     @id @default(autoincrement())
-  logradouro  String  @db.Varchar(100)
-  cep         String  @db.Varchar(9)
+  logradouro  String  @db.VarChar(100)
+  cep         String  @db.VarChar(9)
 }
