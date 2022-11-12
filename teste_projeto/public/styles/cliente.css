@@ -56,8 +56,8 @@ body {
     margin: 0;
     background-color: rgba(255, 255, 255, 0.682);
     border-radius: 10px;
-    height: 460px;
-    width: 700px;
+    height: 1000px;
+    width: 800px;
     margin-top: px;
     margin-bottom: 400px;
     font-size: 20px;
@@ -145,7 +145,7 @@ body {
     background-color: rgb(186, 225, 248);
     position: relative;
     width: 26%;
-    left: 5px;
+    left: 55px;
     margin-bottom: 10px;
     border-radius: 25px;
     padding: 10px;
@@ -176,12 +176,12 @@ body {
 }
 
 .inputForm7 {
-    top: -45px;
+    
     background-color: rgb(40, 121, 168);
     position: relative;
     border-radius: 25px;
     color: white;
-    left: 330px;
+    left: 280px;
     padding: 0 50px;
     font-size: 30px;
     cursor: pointer;
@@ -207,7 +207,7 @@ label {
 
 .telLabel {
     position: relative;
-    left: 110px;
+    left: 50px;
 }
 .cepLabel {
     position: relative;

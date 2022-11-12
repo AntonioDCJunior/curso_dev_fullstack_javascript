@@ -16,21 +16,115 @@
     <div class="main">
         <div class="boxCliente">
             <h1 class="mainText">Cadastre-se como cliente:</h1>
-            <form class="form-cliente">
+            <form class="form-cliente" method="get" action=".">
                 <label>Nome:</label><br>
                 <input class="inputForm1" type="text" placeholder="Nome completo"/><br>
                 <label>Email:</label><br>
                 <input class="inputForm2" type="email" placeholder="Email" /><br>
+                
+                <label>CEP:</label>
+                <input class="inputForm5" type="text" placeholder="00000-000" maxlength="9" onblur="pesquisacep(this.value);" /></label>
+                <!-- <input class="inputForm5" type="number" placeholder="00000-000" /><br> -->
+                <label class="telLabel">Telefone:</label>
+                <input class="inputForm4" type="tel" placeholder="(00) 00000-0000"/><br>
+
+                <label for="rua">Rua</label><br />
+                <input class="inputForm1" type="text" placeholder="Rua" name="rua" id="rua"><br />
+                <!-- <input class="inputForm1" type="text" placeholder="Nome completo"/><br> -->
+
+                <label for="bairro">Bairro</label><br />
+                <input class="inputForm1" type="text" placeholder="Bairro" id="bairro"><br />
+
+                <label for="cidade">Cidade</label><br />
+                <input class="inputForm1" type="text" placeholder="Cidade" id="cidade"><br />
+
+                <label for="estado">Estado</label><br />
+                <input class="inputForm1" type="text" placeholder="Estado" id="uf"><br />
+                
+                
+
                 <label class="senhaLabel">Senha:</label>
-                <label class="cepLabel" >CEP:</label>
-                <label class="telLabel">Telefone:</label><br>
-                <input class="inputForm3" type="password" placeholder="Senha" />
-                <input class="inputForm4" type="tel" placeholder="(00) 00000-0000"/>
-                <input class="inputForm5" type="number" placeholder="00000-000" /><br>
-                <input class="inputForm6" type="password" placeholder="Repita a senha" />
+                <input class="inputForm6" type="password" placeholder="Senha" />
+                <!-- <label class="cepLabel" >CEP:</label> -->
+                <!-- <label class="telLabel">Telefone:</label><br> -->
+                <input class="inputForm3" type="password" placeholder="Repita a senha" />
+                <!-- <input class="inputForm4" type="tel" placeholder="(00) 00000-0000"/> -->
+                <!-- <input class="inputForm5" type="number" placeholder="00000-000" /><br> -->
+                
             </form>
             <input class="inputForm7" type="button" value="Cadastrar" />
         </div>
+
+        <script>
+            function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value=("");
+            document.getElementById('bairro').value=("");
+            document.getElementById('cidade').value=("");
+            document.getElementById('uf').value=("");
+            
+    }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            //Atualiza os campos com os valores.
+            document.getElementById('rua').value=(conteudo.logradouro);
+            document.getElementById('bairro').value=(conteudo.bairro);
+            document.getElementById('cidade').value=(conteudo.localidade);
+            document.getElementById('uf').value=(conteudo.uf);
+            
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+
+    function pesquisacep(valor) {
+
+//Nova variável "cep" somente com dígitos.
+var cep = valor.replace(/\D/g, '');
+
+//Verifica se campo cep possui valor informado.
+if (cep != "") {
+
+    //Expressão regular para validar o CEP.
+    var validacep = /^[0-9]{8}$/;
+
+    //Valida o formato do CEP.
+    if(validacep.test(cep)) {
+
+        //Preenche os campos com "..." enquanto consulta webservice.
+        document.getElementById('rua').value="...";
+        document.getElementById('bairro').value="...";
+        document.getElementById('cidade').value="...";
+        document.getElementById('uf').value="...";
+        
+
+        //Cria um elemento javascript.
+        var script = document.createElement('script');
+
+        //Sincroniza com o callback.
+        script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+        //Insere script no documento e carrega o conteúdo.
+        document.body.appendChild(script);
+
+    } //end if.
+    else {
+        //cep é inválido.
+        limpa_formulário_cep();
+        alert("Formato de CEP inválido.");
+    }
+} //end if.
+else {
+    //cep sem valor, limpa formulário.
+    limpa_formulário_cep();
+}
+};
+        </script>
+
         <div class="boxPrestador">
             <label class="labelPres">Seja um prestador</label>
             <a href="prestador.ejs" target="_blank"><input class="butPres" type="button" value="Aqui!"/></a>
