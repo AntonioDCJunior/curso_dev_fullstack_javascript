@@ -1,0 +1,140 @@
+* {
+    font-family: 'Open Sans';
+      margin: 0;
+      padding: 0;
+      box-size: border-box;
+      list-style: none;
+      text-decoration: none;
+      /* color: white; */
+}
+
+.home{
+    background: rgb(186, 225, 248);
+    width: 50vw;
+    height: 87.8vh;
+    display: flex;
+}
+
+
+ h2 {
+    font-size: 1.7rem;
+    padding: 1rem 1rem 1rem 1rem;  
+    margin-top: 10rem;
+    position: absolute;
+    color: white;
+}
+
+ h2 span {
+    color: rgb(40, 121, 168);
+}
+
+ h3 {
+    font-size: 1.5rem;
+    padding: 1rem 1rem 1rem 8rem;
+    margin-top: 15rem;
+    color: rgb(40, 121, 168);
+    position: absolute;
+}
+
+ p {
+    font-size: 1.5rem;
+    font-weight: bold; 
+    font-family: sans-serif;
+    padding: 1rem 1rem 1rem 3rem;
+    margin-top: 20rem;
+    color: rgb(40, 121, 168);
+    position: absolute;
+    
+}
+
+.caixa-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30rem 30rem 30rem 18rem;    
+    
+
+}
+
+.select-prestador {
+    margin-left: -5rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 2rem;
+    border: none;
+    position: absolute;
+    color: rgb(40, 121, 168);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+form .select-cidade {    
+    margin-right: -20rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 2rem;
+    border: none;
+    position: absolute;
+    color: rgb(40, 121, 168);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.caixa-form input {
+    margin-right: -43rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 2rem;
+    border: none;
+    color: rgb(40, 121, 168);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+form [type="submit"]:hover{
+    cursor: pointer;
+    background-color: rgb(40, 121, 168);
+    color: white;
+ }
+
+
+
+.img-home img {
+    
+    width: 49.8vw;
+    height: 87.1vh;
+    padding: -0.1rem -9rem -9rem 40rem;
+    margin-left: 12rem;
+}
+
+.carrossel{
+    
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    min-heith: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner {
+    display: flex;
+    
+}
+
+.item {
+    min-height: 50px;
+    min-width: 90px;
+    padding: 10px
+}
+
+.item img {
+    width: 100px;
+    height: 200px;
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+.carousel {
+    margin: 30rem 10rem 1rem -170rem;
+    cursor: grab;
+    overflow: hidden;
+}
