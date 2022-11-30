@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="./styles/tela_home.css"/>
+    <link rel="stylesheet" href="./styles/fonts.css"/>
+    <link rel="stylesheet" href="./styles/media.css"/>
+    <!-- <link rel="stylesheet" href="./styles/styles.css"/> -->
+
+    <title>Início</title>
+</head>
+<body>
+    <header id="container">
+        <div id="title">           
+            <a href="#"><h1>Indique</h1>
+                        <h1>Alguém</h1>
+        </div>
+
+        <div >
+            <nav>
+                <ul>
+                    <a href="#"><li>Início</li></a>
+                    <a href="#"><li>Serviços</li></a>
+                    <a href="sobre.ejs"><li>Sobre</li></a>
+                    <a href="#"><li>Contato</li></a>
+                    <a href="#" class="inscreva-se-btn"><li>Já tem uma conta?</li></a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- <aside> -->
+                    <br>
+                    
+                <h2>Está buscando um prestador de serviço<span> para sua casa ou empresa?</span></h2><br>
+                <h2>Aqui você encontra os melhores prestadores de serviços</h2><br>
+                <p>A Indique Alguém vai te conectar a profissionais das mais diversas áreas</p>
+                    <form>
+                        <!-- <input type="text" placeholder="Nome">
+                        <input type="email" placeholder="E-mail"> -->
+                        <!-- <div id="inline">
+                            <input class="prestador" type="text" placeholder="Prestador de Serviços: Babá, pintor, eletricista..."/><br>
+                            <input class="prestador" type="text" placeholder="Onde?"/><br>
+                            <input type="submit" value="Buscar Profissionais >">
+                        </div> -->
+
+                        <div id="inline">
+                            <!-- <input required class="prestador" type="text" placeholder="Exemplo: Pintor"/><br> -->
+                            <select required id="prestador" name="select"  class="select-prestador" >
+                                <option value=" " disabled selected>Prestador</option>
+                                <option value="Advogado">Advogado</option>
+                                <option value="Encanador">Encanador</option>
+                                <option value="Pedreiro">Pedreiro</option>
+                                <option value="Pintor">Pintor</option>
+                            </select> 
+                            <!-- <input class="prestador" type="text" placeholder="Onde?"/><br> -->
+                            <select id="cidades" name="select" class="select-prestador">
+                                <option value=" " disabled selected>Onde?</option>
+                                <option value="Bayeux">Bayeux</option>
+                                <option value="Cabedelo">Cabedelo</option>
+                                <option value="Conde">Conde</option>
+                                <option value="Joao Pessoa">João Pessoa</option>
+                            </select> 
+
+                            <!-- <script>
+                                $(document).ready(function() {
+                                        $('#cidades').select2();
+                                    });
+                            </script> -->
+
+                            <input type="submit" value="Buscar  >"/>
+                        </div>
+                        <!-- <script type=""></script> -->
+                    </form>
+        <!-- </aside> -->
+
+         <!-- <article> -->
+            <img class="img" src="./components/images/buscando_prestador_preview_rev_1.png" alt="busca_de_prestador"/>
+            
+       <!-- </article> -->
+    </main>
+
+    <div id="modal-cadastro" class="modal-container">
+        <div class="modal">
+            <button class="fechar">x</button>
+            <h2 class="mainText">BEM-VINDO AO</h2>
+            <h2 class="mainText2">INDIQUE ALGUÉM!</h2>
+            <input type="checkbox" id="show">
+            <!-- <label for="show" class="show-btn">Login</label> -->
+            <a href="cliente" class="show-btn1">Cadastre-se</a>
+
+            <form action="#">
+                <div class="data">
+                    <label>E-mail</label>
+                    <input type="email" required placeholder="E-mail" /><br>
+                </div>
+                <div class="data">
+                    <label>Senha</label>
+                    <input type="password" required placeholder="Senha" /><br>
+                </div>
+                <div class="forgot-pass">
+                    <a href="#">Esqueceu a senha?</a>
+                <div class="botton">
+                    <button class="show-btn">Entrar</button>
+                </div>
+        </form>
+
+            <!-- <div class="container"> -->
+                
+                <!-- <label for="show" class="close-btn fas fa-times" title="close"></label> -->
+                <!-- <div class="text">
+                    Logar
+                </div> -->
+                    <!-- <form action="#">
+                            <div class="data">
+                                <label>Email:</label>
+                                <input type="email" required placeholder="Email" /><br>
+                            </div>
+                            <div class="data">
+                                <label>Senha:</label>
+                                <input type="password" required placeholder="Senha" /><br>
+                            </div>
+                            <div class="forgot-pass">
+                                <a href="#">Esqueceu a senha?</a>
+                            <div class="botton">
+                                <button class="ModalBtn">Entrar</button>
+                        
+                    </form> -->
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function iniciaModal(modalId){
+            const modal = document.getElementById(modalId);
+            if(modal){
+                modal.classList.add('mostrar');
+                modal.addEventListener('click', (e) => {
+                    
+                    if(e.target.id == modalId || e.target.className == 'fechar'){
+                        modal.classList.remove('mostrar');
+                    }
+                });
+        }
+        }
+
+        const conta = document.querySelector('.inscreva-se-btn');
+        conta.addEventListener('click', () => iniciaModal('modal-cadastro'));
+
+        
+    </script>
+
+    
+</body>
+</html>

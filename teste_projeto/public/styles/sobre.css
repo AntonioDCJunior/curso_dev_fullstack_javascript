@@ -1,0 +1,160 @@
+body {
+    /* margin: 0; */
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: poppinsregular;
+    /* evita que os elementos se espalhem, caso o monitor seja grande */
+    max-width: 1200px;
+    /* para deixar o site no meio da tela qdo diminuir o zoom */
+    margin: 0;
+    padding: 20px 50px;
+    background: rgb(186, 225, 248);
+    
+    
+    /* background: rgb(247, 247, 247); */
+    /* background-image: url(../components/images/buscando_prestador.jpeg); */
+    /* background-size: cover;
+    justify-items: center;
+    align-content: center;
+    height: 100vh;
+    color: black;  */
+ }
+ 
+ header{
+    /* metodo simples de usar, pois possibilida escolher posição dos elementos  */
+     display: flex;
+     /* transformar o cabeçalho em linha */
+     flex-direction: row;
+     /* criar espaço entre os elementos, por isso que o H1 está dentro de uma div */
+     justify-content: space-between;
+     align-items: center;
+     position: fixed;
+  }
+
+  #container{
+    display: flex;
+    top: 0;
+    left: 0;
+    height: 90px;
+    width: 100%;
+    margin: 0 auto;
+    border: none;    
+    position: relative;   
+    position: fixed;
+    height: 100px;
+    background-color:  rgb(40, 121, 168);
+  }
+
+  
+  #title{
+    flex-direction: column;
+    line-height: 10px; 
+    padding: 20px;  
+    /* color: rgb(90, 165, 209);
+    font-weight: bold;
+    text-decoration: none; 
+    display: inline-block;  */
+ }
+
+ 
+h1{
+    font-weight: 2000;
+    /* text-decoration: none; */
+ }
+ 
+ main{
+    display: inline-block;
+    flex-direction: column;
+    margin-top: 150px;
+    /* width: 500px;
+    height: 500px; */
+    /* margin: 0px; */
+    /* justify-content: space-around; */
+    /* align-items: center; */
+  }
+
+  
+ li{
+    display: inline-block;
+    margin: 20px;
+ }
+
+ a{
+   /* color: rgb(40, 121, 168); */
+   color: white;
+   text-decoration: none;
+}
+
+a:hover{
+   color: rgb(186, 225, 248);
+   transition: 0.3s all;
+}
+
+.inscreva-se-btn{
+   /* border: 2px solid rgb(186, 225, 248); */
+   padding: 10px;
+   border-radius: 15px;
+  
+}
+
+.inscreva-se-btn:hover{
+   height: 40px;
+    width: 30%;
+    background-color: white;
+    color: rgb(40, 121, 168); 
+    font-weight: bold;    
+}
+
+
+h2{
+   font-size: 20px;
+   line-height: 15px;
+   font-family: poppinsmedium;
+   
+}
+
+h2.mainText{
+   font-family: poppinsregular;
+   margin: 0;
+   /* background-color: white; */
+   /* border-radius: 35px; */
+   color: rgb(40, 121, 168);
+   position: relative;
+   /* font-size: 2px; */
+   
+   /* transform: translate(-50%, -50%); */
+   /* left: 3000px; */
+   padding: 0 45px;
+   font-size: 25px;
+   left: 50px;
+   /* border: none; */
+   margin-top: -10px;   
+}
+
+h2.mainText2{
+   font-family: poppinsregular;
+   
+   /* background-color: white; */
+   /* border-radius: 35px; */
+   color: rgb(40, 121, 168);
+   position: relative;
+   /* font-size: 2px; */
+   top: 5px;
+   /* transform: translate(-50%, -50%); */
+   /* left: 3000px; */
+   padding: 0 ;
+   font-size: 25px;
+   left: 80px;
+   
+   /* border: none; */
+   margin-top: 15px;   
+}
+
+span{
+  color: rgb(40, 121, 168);
+}
+
+p{
+   line-height: 20px;
+   max-width: 800px;
+   font-family: poppinslight;
+}
