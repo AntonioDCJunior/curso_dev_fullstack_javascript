@@ -60,7 +60,7 @@ const Menu = () => {
                                     <h2 className="mainText">BEM-VINDO AO</h2>
                                     <h2 className="mainText2">INDIQUE ALGUÉM!</h2>
                                     <input type="checkbox" id="show"/>
-                                        <Link to="#" className="show-btn">Cadastre-se</Link>
+                                        <Link to="../../pages/Cadastrar/Cliente/Cliente.js" className="show-btn">Cadastre-se</Link>
 
                                         <form action="#">
                                             <div className="data">
