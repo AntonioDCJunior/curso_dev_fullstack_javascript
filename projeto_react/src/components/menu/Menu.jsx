@@ -3,19 +3,30 @@ import{Link} from "react-router-dom";
 import Modal from "react-modal";
 import './Menu.css'
 
-
+Modal.setAppElement('#root')
 
 
 const Menu = () => {
     const [modalIsOpen, setIsOpen] = useState(false)
 
-    const openModal = () => {
+    function handleOpenModal() {
         setIsOpen(true)
     }
 
-    const closeModal = () => {
+    function handleCloseModal() {
         setIsOpen(false)
     }
+
+    const customStyles = {
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',       
+            background: 'rgb(40, 121, 168)',   
+    }}
     return (
         <>
             
@@ -32,7 +43,7 @@ const Menu = () => {
                         <li><Link to="/Profissoes">Profissões</Link></li>
                         <li><Link to="/Sobre">Sobre</Link></li>
                         <li><Link to="/Contato">Contato</Link></li>
-                        <button onClick={openModal}><li>Já tem uma conta?</li></button>
+                        <button onClick={handleOpenModal}><li>Já tem uma conta?</li></button>
                     </ul>
                 </nav>              
             </header>
@@ -41,13 +52,11 @@ const Menu = () => {
                 {/* <button onClick={openModal}>Open Modal</button> */}
                 <Modal
                     isOpen={modalIsOpen}
-                    onRequestClose={closeModal}
-                    contentlabel="Exemplo Modal"
-                    overlayClassName="modal-overlay"
-                    className="modal-content"
+                    onRequestClose={handleCloseModal}
+                    style={customStyles}
                     >
                             <div className = "modal">
-                                <button className="fechar">x</button>
+                                <button onClick={handleCloseModal}>x</button>
                                     <h2 className="mainText">BEM-VINDO AO</h2>
                                     <h2 className="mainText2">INDIQUE ALGUÉM!</h2>
                                     <input type="checkbox" id="show"/>
@@ -59,7 +68,7 @@ const Menu = () => {
                                                 <input type="email" required placeholder="E-mail" />
                                             </div>
 
-                                            <div className="data">
+                                            <div className="data1">
                                                 <label>Senha</label>
                                                 <input type="password" required placeholder="Senha" />
                                             </div>
@@ -69,7 +78,7 @@ const Menu = () => {
                                             </div>
 
                                             <div className="botton">
-                                                <button className="show-btn">Entrar</button>
+                                                <button className="show-btn1">Entrar</button>
                                             </div>
                                         </form>
                             </div> 
