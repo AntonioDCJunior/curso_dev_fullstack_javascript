@@ -31,37 +31,43 @@ const Home = () => {
 
     return (        
         <div className="home">
-                
-                        <h2>Está buscando um prestador de serviço<span> para sua casa ou empresa?</span></h2>
-                         <h3>Aqui você encontra os melhores prestadores de serviços</h3>
-                         <p>A Indique Alguém vai te conectar a profissionais das mais diversas áreas</p>
+                <main>
+                    <aside>
+                            <h2>Está buscando um prestador de serviço<span> para sua casa ou empresa?</span></h2>
+                            <h3>Aqui você encontra os melhores prestadores de serviços</h3>
+                            <p>A Indique Alguém vai te conectar a profissionais das mais diversas áreas</p>
 
-                            
-                            <form className="caixa-form">                               
-                                    
-                                    <select required id="prestador" name="select"  className="select-prestador" >
-                                        <option value=" " disabled selected>Prestador</option>
-                                        <option value="Advogado">Advogado</option>
-                                        <option value="Encanador">Encanador</option>
-                                        <option value="Pedreiro">Pedreiro</option>
-                                        <option value="Pintor">Pintor</option>
-                                    </select> 
-                                    
-                                    <select id="cidades" name="select" className="select-cidade">
-                                        <option value=" " disabled selected>Onde?</option>
-                                        <option value="Bayeux">Bayeux</option>
-                                        <option value="Cabedelo">Cabedelo</option>
-                                        <option value="Conde">Conde</option>
-                                        <option value="Joao Pessoa">João Pessoa</option>
-                                    </select>                                      
-
-                                    <input type="submit" value="Buscar  >"/>                               
                                 
-                            </form>                  
+                                <form className="caixa-form">                               
+                                        
+                                        <select required id="prestador" name="select"  className="select-prestador" >
+                                            <option value=" " disabled selected>Prestador</option>
+                                            <option value="Advogado">Advogado</option>
+                                            <option value="Encanador">Encanador</option>
+                                            <option value="Pedreiro">Pedreiro</option>
+                                            <option value="Pintor">Pintor</option>
+                                        </select> 
+                                        
+                                        <select id="cidades" name="select" className="select-cidade">
+                                            <option value=" " disabled selected>Onde?</option>
+                                            <option value="Bayeux">Bayeux</option>
+                                            <option value="Cabedelo">Cabedelo</option>
+                                            <option value="Conde">Conde</option>
+                                            <option value="Joao Pessoa">João Pessoa</option>
+                                        </select>                                      
 
-                            <article className="img-home">                        
+                                        <input type="submit" value="Buscar >"/>                               
+                                    
+                                </form>  
+                    </aside>
+
+                            {/* <article className="img-home">                        
                                 <img src={buscando_prestador} alt="busca_de_prestador"/>
-                            </article>  
+                            </article>  */}
+
+                </main>                
+
+                             
 
                             <div className="carrossel" >
 
@@ -85,6 +91,8 @@ const Home = () => {
                                         </motion.div>
                                         
                                     </div>   
+
+                                    
 
                                                        
         </div>

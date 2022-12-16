@@ -37,8 +37,8 @@ const Menu = () => {
                                  <h1>Alguém</h1></Link>
                 </div> 
 
-                <nav>
-                    <ul>
+                <nav >
+                    <ul className="nav-bar">
                         <li><Link to="/Home">Início</Link></li>
                         <li><Link to="/Profissoes">Profissões</Link></li>
                         <li><Link to="/Sobre">Sobre</Link></li>
