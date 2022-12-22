@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:@localhost:3306/teste_projeto_react"
+}
+
+model usuarios {
+  id        Int     @id @default(autoincrement())
+  nome      String  @db.VarChar(100)
+  email     String? @unique(map: "email") @db.VarChar(100)
+  cep       String  @db.VarChar(100)
+  rua       String? @db.VarChar(100)
+  bairro    String? @db.VarChar(100)
+  cidade    String? @db.VarChar(100)
+  estado    String? @db.VarChar(100)
+  senha     String  @db.VarChar(100)
+  cpf       String  @unique(map: "cpf") @db.VarChar(11)
+  telefone  String  @db.VarChar(100)
+  profissao String  @db.VarChar(100)
+}

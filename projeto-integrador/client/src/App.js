@@ -1,6 +1,6 @@
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 
-import Inicio from './components/pages/Inicio';
+import Inicio from './components/pages/Inicio'
 import Profissionais from './components/pages/Profissionais';
 import Sobre from './components/pages/Sobre';
 import Contato from './components/pages/Contato';

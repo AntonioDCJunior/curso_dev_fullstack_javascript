@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+// import axios from 'axios'
 import Input from '../form/Input'
 import Select from '../form/Select'
 import SubmitButton from '../form/SubmitButton'
@@ -43,10 +43,10 @@ function CadastroForm ({}) {
             senha:senha,
             repetirsenha: repetirsenha 
         }
-        const resposta = await axios.post('http://localhost:3306/teste_projeto_react', usuario)
-        if (resposta.status == 200) {
-            navigate("/usuarios");
-        }
+        // const resposta = await axios.post('http://localhost:3306/teste_projeto_react', usuario)
+        // if (resposta.status == 200) {
+        //     navigate("/usuarios");
+        // }
     }
     
 // const {register, setValue} = useForm();
