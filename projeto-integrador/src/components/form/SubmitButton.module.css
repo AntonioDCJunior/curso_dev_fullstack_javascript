@@ -8,12 +8,11 @@
     font-weight: bold;
     cursor: pointer;
     border: none;
+    font-size: 15px;
 }
 
 .btn:hover {
     cursor: pointer;
     background-color: rgb(40, 121, 168);
-    color: white;;
+    color: white;
 }
-
-
