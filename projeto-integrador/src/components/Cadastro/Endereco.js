@@ -1,4 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect, useReducer} from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import axios from 'axios'
 // import { useForm } from 'react-hook-form'
 import styles from './Endereco.module.css'
 import Input from '../form/Input'
@@ -8,7 +10,56 @@ import LinkButton from '../layout/LinkButton'
 
 function Endereco ({btnText}) {
 
-    const [cep, setCep] = useState ('')
+   
+    let navigate = useNavigate();
+        const [logradouro, setLogradouro] = useState("");
+        // const [cep, setCep] = useState("");
+        const [numero, setNumero] = useState("");
+        const [bairro, setBairro] = useState("");
+        const [complemento, setComplemento] = useState("");
+        const [cidade, setCidade] = useState("");
+        const [estado, setEstado] = useState("");
+      
+        const cadastrarEndereco = async (e) => {
+          e.preventDefault();
+          const endereco = {
+            logradouro: logradouro,
+            cep: cep,       
+            numero: numero,     
+            bairro: bairro,     
+            complemento: complemento, 
+            cidade: cidade,     
+            estado: estado,           
+          };
+      
+          const response = await axios.post(
+            "http://localhost:3002/enderecos",
+            endereco
+          );
+          // .then((res) => {
+          //   console.log(res.data);
+          // })
+          // .catch((e) => {
+          //   console.log(e);
+          // });
+      
+          if (response.status === 200) {
+            navigate(`/cadastrofinalizado/${response.data.id}`);
+        //     toast.success("Assinatura feita com Sucesso!", {
+        //       position: "top-right",
+        //       autoClose: 5000,
+        //       hideProgressBar: false,
+        //       closeOnClick: true,
+        //       pauseOnHover: true,
+        //       draggable: true,
+        //       progress: undefined,
+        //       theme: "dark",
+        //     });
+        //   }
+        };
+    }
+
+    // const [cep, setCep] = useState ('')
 
     // const checkCEP = (e) => {
     //     const cep = e.target.value.replace(/\D/g, '')
@@ -24,6 +75,53 @@ function Endereco ({btnText}) {
         
 
     // }
+    function reducer (state, action) {
+        if (action.type === 'UPDATE_FULL_ADDRESS') {
+            return {
+                ...state,
+                ...action.payload
+            } 
+    }
+    
+            return state
+    }
+    
+    const initialState = {
+        code: '',
+        address: '',
+        number: '',
+        district: '',
+        complement: '',
+        city: '',
+        state: '',
+        error: null
+    }
+
+    
+
+    const [cep, setCep] = useState ('')
+    const [addressState, dispatch] = useReducer(reducer, initialState)
+
+    useEffect(() => {
+       async  function fetchAddress () {
+            if (cep.length < 9) {
+                return 
+            }           
+
+            const data = await fetch(
+                `https://cdn.apicep.com/file/apicep/${cep}.json`
+                )
+            const result = await data.json()
+            console.log(result)
+
+            dispatch({
+                type: 'UPDATE_FULL_ADDRESS',
+                payload: result.address
+            })
+        }
+       
+        fetchAddress ()
+    }, [cep])
 
     function handleChangeCep (e) {
         setCep(cepMask(e.target.value))
@@ -32,55 +130,97 @@ function Endereco ({btnText}) {
     function cepMask (value) {
         return value
         .replace(/\D+/g, '')
+        .replace(/(\d{5})(\d)/, '$1-$2') //qdo estiver com 5 num sera realizada operacao de subtracao das capturas
+        .replace(/(-\d{3})\d+?$/, '$1') //limita a qtd de 3 num apos o traço
+    }
+
+    function handleChangeField (e) {
+
     }
 
     return (
 
         <form className={styles.form_endereco}>
-            <Input 
+            <div className={styles.form_titulo_endereco}><h1>Endereço do Usuário</h1></div>
+            
+            <div className={styles.form_control_cep}>
+                <input 
+                    label='CEP'
+                    type="text"
+                    text="CEP"
+                    placeholder="CEP"
+                    // id="cep"
+                    // {...register("cep")}
+                    // onBlur={checkCEP}
+                    value={cep}
+                    onChange={handleChangeCep}
+                />
+            </div>
+
+            <div className={styles.form_control_rua}>
+                <input 
+                label='RUA'
+                name= 'address'
+                    type="text"
+                    text="Rua"
+                    placeholder='Rua'
+                    // name='address'
+                    // {...register("address")}
+                    onChange={(e) => setLogradouro(e.target.value)}
+                />
+            </div>
+
+            <div className={styles.form_control_bairro}>
+                <input 
+                label='Bairro'
+                name= 'district'
                 type="text"
-                text="CEP"
-                placeholder="00000000"
-                // id="cep"
-                // {...register("cep")}
-                // onBlur={checkCEP}
-                value={cep}
-                onChange={handleChangeCep}
-            />
+                text="Bairro"
+                placeholder='Bairro'
+                // id="neighborhood"
+                // {...register("neighborhood")}
+                onChange={(e) => setBairro(e.target.value)}
+                />
+            </div>
 
-
-            <Input 
+            <div className={styles.form_control_cidade}>
+                <input 
+                label='Cidade'
+                name= 'city'
                 type="text"
-                text="Rua"
-                // id="address"
-                // {...register("address")}
-            />
+                text="Cidade"
+                placeholder='Cidade'
+                // id="city"
+                // {...register("city")}
+                onChange={(e) => setCidade(e.target.value)}
+                />
+            </div>
 
+            <div className={styles.form_control_estado}>
+                <input 
+                label='Estado'
+                name= 'state'
+                type="text"
+                text="Estado"
+                placeholder='Estado'
+                // id="uf"
+                // {...register("uf")}
+                onChange={(e) => setEstado(e.target.value)}
+                />
+            </div>
 
-            <Input 
-            type="text"
-            text="Bairro"
-            // id="neighborhood"
-            // {...register("neighborhood")}
-            />
+        {/* <LinkButton to="/cadastrofinalizado" text="Finalizar" /> */}
+        {/* {[ ].map((input) => (
+                <input
+                    {...input}
+                    key={input.name}
+                    value={addressState[input.name]}
+                    onChange={handleChangeField}
+                />
+            ))} */}
 
-
-            <Input 
-            type="text"
-            text="Cidade"
-            // id="city"
-            // {...register("city")}
-            />
-
-
-            <Input 
-            type="text"
-            text="Estado"
-            // id="uf"
-            // {...register("uf")}
-            />
-
-        <LinkButton to="/cadastrofinalizado" text="Finalizar" />
+        <button className={styles.finalizar} onClick={(e) => cadastrarEndereco(e)}>Finalizar</button>
+            
             
 
 </form>
@@ -89,6 +229,7 @@ function Endereco ({btnText}) {
 }
 
     
+
     
 
     

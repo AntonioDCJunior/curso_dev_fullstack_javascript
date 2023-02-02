@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import Input from '../form/Input'
 import LinkButton from '../layout/LinkButton';
-import styles from './Cadastro.Finalizado.css'
+import styles from './CadastroFinalizado.module.css'
 
 const customStyles = {
     content: {
